@@ -41,8 +41,8 @@ class Hashids implements HashidsInterface
         $this->alphabet = implode('', array_unique($this->multiByteSplit($alphabet)));
         $this->math = $this->getMathExtension();
 
-        if (mb_strlen($this->alphabet) < 16) {
-            throw new InvalidArgumentException('The Hashids alphabet must contain at least 16 unique characters.');
+        if (mb_strlen($this->alphabet) < 9) {
+            throw new InvalidArgumentException('The Hashids alphabet must contain at least 9 unique characters.');
         }
 
         if (false !== mb_strpos($this->alphabet, ' ')) {
